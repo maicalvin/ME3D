@@ -1,4 +1,8 @@
+require 'bcrypt'
+
 class UsersController < ApplicationController
+  include BCrypt
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -10,7 +14,19 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @users=current_user
+    
   end
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+  
 
   # GET /users/new
   def new
@@ -20,14 +36,29 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+  # POST SIGN IN
+  def usersignin
+     # find the user
+    user = User.find_by(email: params[:email])
+  # authenticate user
+    if user && user.authenticate(params[:password])
+      sign_in(user)
+      redirect_to user_path(current_user.id)
+    else
+      redirect "/users/new"
+    end
 
+  end
+  # GET USER SIGN IN PAGE
+  def signin
+  end
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -69,6 +100,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:first_name,:last_name,:gender,:email,:birthday,:password)
     end
+  
 end

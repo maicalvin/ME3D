@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+Welcome back to ME3D<p>
+ <%if @users.gender=='Male'%>
+ Mr. <%=@users.first_name%><br>
+ <hr>   
+ <%elsif @users.gender=='Female'%>
+ Mrs.<%=@users.first_name%><br>
+ <hr>
+ <%end%>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

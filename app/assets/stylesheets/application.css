@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+body{
+    background-color: rgb(241, 229, 229);
+    margin: 0%;
+    padding: 0%;
+}
+
+.navbar{
+    background-color: rgb(95, 128, 218);
+    
+}
+.navbar-brand{
+    color:white;
+}
+.logo{
+    width:10%;
+}

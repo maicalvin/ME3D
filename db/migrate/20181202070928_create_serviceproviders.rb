@@ -6,6 +6,8 @@ class CreateServiceproviders < ActiveRecord::Migration[5.2]
     t.string :location
     t.string :price
     t.string :materials
+    t.string :delivery
+    t.string :collection
     t.references :user, foreign_key: true
 
       t.timestamps

@@ -21,21 +21,28 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
  <img class='logo'src='<%=asset_path ('MAKE1')%>'>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <%if logged_in? %>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+         <%=link_to user_path(current_user) do %>
+             Profile
+         <% end %>
       </li>
+    <% end %>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
     </ul>
       <%if logged_in? %>
-               <li class="nav-item">
-        <a class="nav-link" href="signin">Sign Out</a>
-      </li>
+         <%=link_to new_user_serviceprovider_path(current_user) do %>
+         Be a Service Provider
+         <% end %>
+        <li class="nav-item">
+          <%= link_to t(".sign_out"), sign_out_path, method: :delete, class:"nav-link" %>
+        </li>
       <% else %>
-       <li class="nav-item">
-        <a class="nav-link" href="signin">Sign In</a>
-      </li>
+        <li class="nav-item">
+          <%= link_to t(".sign_in"), sign_in_path, class:"nav-link" %>
+        </li>
       <% end %>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
       # clears the session by setting the value of `:user_id` key to `nil`
       def sign_out
         session[:user_id] = nil
-  
+        redirect_to new_user_path
       end
 end

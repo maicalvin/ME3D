@@ -1,5 +1,12 @@
 <h1>New Serviceprovider</h1>
 
-<%= render 'form', serviceprovider: @serviceprovider %>
 
-<%= link_to 'Back', serviceproviders_path %>
+
+    <%= form_with(model: @serviceprovider, local: true) do |form| %>
+          <%= form.text_field :provider_name, class:'col-8 form-control', placeholder:'Company Name' %><p>
+          <%= form.text_field :description, class:'col-8 form-control', placeholder:'Description' %><p>
+          Location:
+          <%= form.select :location, ['Johor Bahru', 'Kedah','Kelantan','Pahang','Melaka','Negeri Sembilan','Perak','Perlis','Pulau Pinang','Selangor','Terengganu','Sabah','Sarawak'], class:"col-8" %><p>
+          <%= form.text_field :materials, class:'col-8 form-control', placeholder:'Materials' %><p>
+          <%= form.submit 'Submit'%><p>
+     <% end %>

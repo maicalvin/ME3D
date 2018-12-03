@@ -2,7 +2,7 @@
 
 
 
-    <%= form_with(model: @serviceprovider, local: true) do |form| %>
+    <%= form_with( model: @serviceprovider,method: :post, local: true,url: user_serviceproviders_path) do |form| %>
           <%= form.text_field :provider_name, class:'col-8 form-control', placeholder:'Company Name' %><p>
           <%= form.text_field :description, class:'col-8 form-control', placeholder:'Description' %><p>
           Location:

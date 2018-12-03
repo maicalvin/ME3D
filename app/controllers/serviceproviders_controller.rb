@@ -25,10 +25,11 @@ class ServiceprovidersController < ApplicationController
   # POST /serviceproviders.json
   def create
     @serviceprovider = Serviceprovider.new(serviceprovider_params)
+    @serviceprovider.user_id = current_user.id
 
     respond_to do |format|
       if @serviceprovider.save
-        format.html { redirect_to @serviceprovider, notice: 'Serviceprovider was successfully created.' }
+        format.html { redirect_to user_path(current_user.id), notice: 'Serviceprovider was successfully created.' }
         format.json { render :show, status: :created, location: @serviceprovider }
       else
         format.html { render :new }

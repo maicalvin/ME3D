@@ -7,5 +7,6 @@ Welcome back to ME3D<p>
  Mrs.<%=@users.first_name%><br>
  <hr>
  <%end%>
+ <%= @users.serviceprovider_id%>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

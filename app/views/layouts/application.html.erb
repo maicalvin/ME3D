@@ -29,20 +29,17 @@
       </li>
     <% end %>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+          <%= link_to t(".Home"), all_providers_path, class:"nav-link" %>
       </li>
     </ul>
       <%if logged_in? %>
+      
          <%=link_to new_user_serviceprovider_path(current_user) do %>
          Be a Service Provider
          <% end %>
-        <li class="nav-item">
           <%= link_to t(".sign_out"), sign_out_path, method: :delete, class:"nav-link" %>
-        </li>
       <% else %>
-        <li class="nav-item">
           <%= link_to t(".sign_in"), sign_in_path, class:"nav-link" %>
-        </li>
       <% end %>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

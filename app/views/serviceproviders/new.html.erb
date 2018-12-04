@@ -5,8 +5,14 @@
     <%= form_with( model: @serviceprovider,method: :post, local: true,url: user_serviceproviders_path) do |form| %>
           <%= form.text_field :provider_name, class:'col-8 form-control', placeholder:'Company Name' %><p>
           <%= form.text_field :description, class:'col-8 form-control', placeholder:'Description' %><p>
+          <%= form.text_field :phone, class:'col-8 form-control', placeholder:'Phone Number' %><p>
+          <%= form.text_field :email, class:'col-8 form-control', placeholder:'Email' %><p>
           Location:
           <%= form.select :location, ['Johor Bahru', 'Kedah','Kelantan','Pahang','Melaka','Negeri Sembilan','Perak','Perlis','Pulau Pinang','Selangor','Terengganu','Sabah','Sarawak'], class:"col-8" %><p>
           <%= form.text_field :materials, class:'col-8 form-control', placeholder:'Materials' %><p>
+            Do you provide self-collection service:
+          <%= form.select :collection, ['Yes', 'No'], class:"col-8" %><p>
+            Do you provide delivery service:
+          <%= form.select :delivery, ['Yes', 'No'], class:"col-8" %><p>
           <%= form.submit 'Submit'%><p>
      <% end %>

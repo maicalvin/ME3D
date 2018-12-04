@@ -8,6 +8,9 @@ class CreateServiceproviders < ActiveRecord::Migration[5.2]
     t.string :materials
     t.string :delivery
     t.string :collection
+    t.string :phone
+    t.string :email
+
     t.references :user, foreign_key: true
 
       t.timestamps

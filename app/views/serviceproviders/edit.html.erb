@@ -1,6 +1,47 @@
 <h1>Editing Serviceprovider</h1>
 
-<%= render 'form', serviceprovider: @serviceprovider %>
+    <%= form_with( model: @serviceprovider,method: :put, local: true,url: user_serviceprovider_path) do |form| %>
 
-<%= link_to 'Show', @serviceprovider %> |
-<%= link_to 'Back', serviceproviders_path %>
+ 
+  <% if @serviceprovider.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@serviceprovider.errors.count, "error") %> prohibited
+        this listing from being saved:
+      </h2>
+      <ul>
+        <% @serviceprovider.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :provider_name %>
+    <%= form.text_field :provider_name %>
+
+    <%= form.label :location %>
+    <%= form.select :location, ['Johor Bahru', 'Kedah','Kelantan','Pahang','Melaka','Negeri Sembilan','Perak','Perlis','Pulau Pinang','Selangor','Terengganu','Sabah','Sarawak'], class:"col-8" %><p>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+
+    <%= form.label :materials %>
+    <%= form.text_area :materials %>
+
+    <%= form.label :phone %>
+    <%= form.text_area :phone %>
+    <%= form.label :email %>
+    <%= form.text_area :email %>
+
+    <%= form.label :delivery %>
+    <%= form.select :delivery, ['Yes', 'No'], class:"col-8" %><p>
+
+        
+    <%= form.label :collection %>
+    <%= form.select :collection, ['Yes', 'No'], class:"col-8" %><p>
+
+      <%= form.submit %>
+  </p>
+ 
+<% end %>

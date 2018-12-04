@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2018_12_03_134949) do
     t.string "materials"
     t.string "delivery"
     t.string "collection"
+    t.string "phone"
+    t.string "email"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

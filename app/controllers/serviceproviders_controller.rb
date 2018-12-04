@@ -10,6 +10,8 @@ class ServiceprovidersController < ApplicationController
   # GET /serviceproviders/1
   # GET /serviceproviders/1.json
   def show
+    @serviceprovider=Serviceprovider.find_by(id: params[:id])   
+
   end
 
   # GET /serviceproviders/new
@@ -43,7 +45,7 @@ class ServiceprovidersController < ApplicationController
   def update
     respond_to do |format|
       if @serviceprovider.update(serviceprovider_params)
-        format.html { redirect_to @serviceprovider, notice: 'Serviceprovider was successfully updated.' }
+        format.html { redirect_to user_serviceprovider_path, notice: 'Serviceprovider was successfully updated.' }
         format.json { render :show, status: :ok, location: @serviceprovider }
       else
         format.html { render :edit }
@@ -70,7 +72,7 @@ class ServiceprovidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def serviceprovider_params
-      params.require(:serviceprovider).permit(:provider_name,:description,:location,:materials)
+      params.require(:serviceprovider).permit(:provider_name,:email,:phone,:delivery,:collection,:description,:location,:materials)
 
     end
 end      

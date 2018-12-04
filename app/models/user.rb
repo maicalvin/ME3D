@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    validates :email, uniqueness: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
-    has_secure_password
+  validates :email, uniqueness: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+  has_secure_password
     has_many :authentications, dependent: :destroy
     has_many :serviceproviders, dependent:  :destroy
 

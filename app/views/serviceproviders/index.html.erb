@@ -1,25 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Serviceproviders</h1>
+<h1>3D Printing Service Providers available in Malaysia</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+    <% @serviceproviders.each_with_index do |provider,index| %>
+        <%=index+1%>.
+        <%=provider.provider_name%><br>
+        Description:        
+        <%=provider.description%><br>
+        Location:
+        <%=provider.location%><br>
+        Phone:
+        <%=provider.phone%><br>
+        Email:
+        <%=provider.email%><br>
+        <%= link_to 'Show', user_serviceprovider_path(:user_id=>provider.user_id,:id=>provider.id)  %><br>
 
-  <tbody>
-    <% @serviceproviders.each do |serviceprovider| %>
-      <tr>
-        <td><%= link_to 'Show', serviceprovider %></td>
-        <td><%= link_to 'Edit', edit_serviceprovider_path(serviceprovider) %></td>
-        <td><%= link_to 'Destroy', serviceprovider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Serviceprovider', new_serviceprovider_path %>
+    <%end%>
+</div>

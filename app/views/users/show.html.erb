@@ -7,6 +7,24 @@ Welcome back to ME3D<p>
  Mrs.<%=@users.first_name%><br>
  <hr>
  <%end%>
- <%= @users.serviceprovider_id%>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+ <%if @users.serviceprovider_ids!=[]%>
+  <strong>Service Provider Information:</strong><p>
+  <%= @users.serviceproviders.last.provider_name%><p>
+  <%= @users.serviceproviders.last.description%><p>
+  Phone Number :
+  <%= @users.serviceproviders.last.phone%><p>
+  Email:
+  <%= @users.serviceproviders.last.email%><p>
+
+  States:
+  <%= @users.serviceproviders.last.location%><p>
+    Delivery service:
+  <%= @users.serviceproviders.last.delivery%><p>
+    Self collection service:
+  <%= @users.serviceproviders.last.collection%><p>
+  <%if current_user %>
+<%= link_to 'Edit',edit_user_serviceprovider_path(@current_user) %> 
+<%end%>
+
+ <%end%>
+

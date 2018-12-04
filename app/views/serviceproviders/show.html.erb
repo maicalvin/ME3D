@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_serviceprovider_path(@serviceprovider) %> |
-<%= link_to 'Back', serviceproviders_path %>
+
+  <%= @serviceprovider.provider_name%><p>
+ 
+  <%= @serviceprovider.description%><p>
+  Description:
+  <%= @serviceprovider.location%><p>
+  Phone Number:
+  <%= @serviceprovider.phone%><p>
+  Email:
+  <%= @serviceprovider.email%><p>
+  <%= @serviceprovider.materials%><p>

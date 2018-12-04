@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 Welcome back to ME3D<p>
+<%= image_tag(@users.profilepicture.url, alt: 'Image') if @users.profilepicture? %>
+
  <%if @users.gender=='Male'%>
  Mr. <%=@users.first_name%><br>
  <hr>   

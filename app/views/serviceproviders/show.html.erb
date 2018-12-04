@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-
+<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+<script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
   <%= @serviceprovider.provider_name%><p>
  
   <%= @serviceprovider.description%><p>
@@ -10,4 +14,37 @@
   <%= @serviceprovider.phone%><p>
   Email:
   <%= @serviceprovider.email%><p>
+  PLA:
   <%= @serviceprovider.materials%><p>
+<div style="width: 640px; height: 480px" id="mapContainer"></div>
+  <script>
+  let data = JSON.parse('<%= raw @longitude %>')
+  console.log(data)
+
+    // Initialize the platform object:
+    var platform = new H.service.Platform({
+    'app_id': '<%= ENV['HERE_APP_ID']%>',
+    'app_code': '<%= ENV['HERE_APP_SECRET']%>'
+    });
+
+    // Obtain the default map types from the platform object
+    var maptypes = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    var map = new H.Map(
+    document.getElementById('mapContainer'),
+    maptypes.normal.map,
+    {
+      zoom: 18,
+      center: { lng: data.longitude, lat: data.latitude}
+    });
+    var icon = new H.map.Icon("<%=asset_path ('MAKE1')%>", {size: {w: 32, h: 32}});
+    var marker = new H.map.Marker({ 
+      lat: data.latitude,
+       lng: data.longitude 
+       }, { 
+      icon: icon 
+      });
+    map.addObject(marker);
+   
+  </script>

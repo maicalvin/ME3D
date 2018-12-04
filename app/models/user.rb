@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_secure_password
     has_many :authentications, dependent: :destroy
     has_many :serviceproviders, dependent:  :destroy
+    mount_uploader :profilepicture, ImageUploader
 
     def self.create_with_auth_and_hash(authentication, auth_hash)
       user = self.create!(

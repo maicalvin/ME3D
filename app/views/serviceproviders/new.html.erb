@@ -9,7 +9,14 @@
           <%= form.text_field :email, class:'col-8 form-control', placeholder:'Email' %><p>
           Location:
           <%= form.select :location, ['Johor Bahru', 'Kedah','Kelantan','Pahang','Melaka','Negeri Sembilan','Perak','Perlis','Pulau Pinang','Selangor','Terengganu','Sabah','Sarawak'], class:"col-8" %><p>
+          Longitude of your company:
+          <%= form.text_field :longitude, class:'col-8 form-control', placeholder:'Longitude' %><p>
+          Latitude of your company:
+          <%= form.text_field :latitude, class:'col-8 form-control', placeholder:'Latitude' %><p>
+          What type of materials do you print:
           <%= form.text_field :materials, class:'col-8 form-control', placeholder:'Materials' %><p>
+          Price per g:
+          <%= form.text_field :price, class:'col-8 form-control', placeholder:'Price' %><p>
             Do you provide self-collection service:
           <%= form.select :collection, ['Yes', 'No'], class:"col-8" %><p>
             Do you provide delivery service:

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post '/signin'=>"users#usersignin",as:'user_sign_in'
   delete "/sign_out" => "application#sign_out", as: "sign_out"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  post '/serviceproviders/search' => 'serviceproviders#search', as: 'search_providers'
+  get '/serviceproviders/:id' => 'serviceproviders#show', as: 'show_providers'
 
 end

@@ -10,6 +10,8 @@ class CreateServiceproviders < ActiveRecord::Migration[5.2]
     t.string :collection
     t.string :phone
     t.string :email
+    t.string :longitude
+    t.string :latitude
 
     t.references :user, foreign_key: true
 

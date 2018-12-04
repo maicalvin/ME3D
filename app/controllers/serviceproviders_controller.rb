@@ -11,9 +11,21 @@ class ServiceprovidersController < ApplicationController
   # GET /serviceproviders/1.json
   def show
     @serviceprovider=Serviceprovider.find_by(id: params[:id])   
+    @longitude= Serviceprovider.find_by(id: params[:id]).to_json
 
   end
 
+  def search
+    @companies = Serviceprovider.all
+    @search_providers = Serviceprovider.search_providers(provider_name:params["searchcompany"])
+
+    @company= Serviceprovider.find_by(provider_name: params["searchcompany"])
+
+        respond_to do |format|
+            format.html { redirect_to show_providers_path(@company.id) }
+            format.json { render json: @search_providers.map{|c| c.name}}
+        end
+    end
   # GET /serviceproviders/new
   def new
     @serviceprovider = Serviceprovider.new
@@ -72,7 +84,7 @@ class ServiceprovidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def serviceprovider_params
-      params.require(:serviceprovider).permit(:provider_name,:email,:phone,:delivery,:collection,:description,:location,:materials)
+      params.require(:serviceprovider).permit(:provider_name,:longitude,:price,:latitude,:email,:phone,:delivery,:collection,:description,:location,:materials)
 
     end
 end      

@@ -6,7 +6,6 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"> User </h5>
-      
     </div>
       <%= form_with(model: @user, local: true) do |form| %>
           <%= form.text_field :first_name, class:'col-8 form-control', placeholder:'First Name' %><p>
@@ -15,6 +14,8 @@
           <%= form.text_field :password, type:'password',class:'col-8 form-control', placeholder:'password' %><p>
           <%= form.select :gender, ['Male', 'Female'], class:"col-8" %><p>
           <%= form.text_field :birthday, type: 'birthday',placeholder:'yyyy-mm-dd', class:"col-8 form-control"  %>
+          <%= form.label :profilepicture%>
+          <%= form.file_field :profilepicture %>
           <%= form.submit 'SIGN UP'%><p>
       <% end %>
 

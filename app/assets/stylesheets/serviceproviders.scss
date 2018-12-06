@@ -1,3 +1,28 @@
 // Place all the styles related to the serviceproviders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.provider_all{
+    display:block;
+    border-radius:2vh;
+    box-shadow: 5px 5px 5px black;
+    padding: 2vh;
+    margin:2vh;
+}
+
+.comp_name{
+    font-size: 5vh;
+    margin-bottom:10vh;
+    font-family: 'Bungee', cursive;
+    color:rgb(255, 60, 60)!important;
+    text-shadow: grey 5px 5px 5px;  
+}
+.comp_des{
+    font-size: 2vh!important; 
+}
+.comp_content{
+    font-size: 2vh;
+}
+.comp_show{
+    height: 100%!important;
+    margin-top: 2%;
+}

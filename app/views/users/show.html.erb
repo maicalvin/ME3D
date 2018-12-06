@@ -1,32 +1,41 @@
 <p id="notice"><%= notice %></p>
-Welcome back to ME3D<p>
+<div class='container'>
+<h2>Welcome back to ME3D</h2>
 <%= image_tag(@users.profilepicture.url, alt: 'Image') if @users.profilepicture? %>
-
  <%if @users.gender=='Male'%>
- Mr. <%=@users.first_name%><br>
- <hr>   
- <%elsif @users.gender=='Female'%>
- Mrs.<%=@users.first_name%><br>
- <hr>
+  Mr. <%=@users.first_name%><br>
+  <hr>   
+  <%elsif @users.gender=='Female'%>
+  Mrs.<%=@users.first_name%><br>
+  <hr>
  <%end%>
- <%if @users.serviceprovider_ids!=[]%>
-  <strong>Service Provider Information:</strong><p>
-  <%= @users.serviceproviders.last.provider_name%><p>
-  <%= @users.serviceproviders.last.description%><p>
-  Phone Number :
-  <%= @users.serviceproviders.last.phone%><p>
-  Email:
-  <%= @users.serviceproviders.last.email%><p>
-
-  States:
-  <%= @users.serviceproviders.last.location%><p>
-    Delivery service:
-  <%= @users.serviceproviders.last.delivery%><p>
-    Self collection service:
-  <%= @users.serviceproviders.last.collection%><p>
-  <%if current_user %>
-<%= link_to 'Edit',edit_user_serviceprovider_path(@current_user) %> 
-<%end%>
-
+ 
+ <%@users.birthday%>
+    <%if @users.serviceprovider_ids!=[]%>
+        <strong>Service Provider Information:</strong><p>
+       
+         
+    <div class="row mb-2">
+        <div class="col-md-8">
+          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">Your Company</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#"><%= @users.serviceproviders.last.provider_name%><p></a>
+              </h3>
+              <div class="mb-1 text-muted"><%= @users.serviceproviders.last.description%><p></div>
+              <p class="card-text mb-auto"> Phone Number :
+                 <%= @users.serviceproviders.last.phone%><br>
+                 Email:<%= @users.serviceproviders.last.email%><br>
+                 States:<%= @users.serviceproviders.last.location%><br>
+                 Delivery service:<%= @users.serviceproviders.last.delivery%><br>
+                 Self collection service:<%= @users.serviceproviders.last.collection%></p>
+            </div>
+              <%if @users.serviceproviders.last.user_id==current_user.id%>
+              <%= link_to 'Edit',edit_user_serviceprovider_path(@current_user) %> 
+              <%end%>
+          </div>
+        </div>
  <%end%>
+ </div>
 

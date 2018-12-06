@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
-
-<h1>3D Printing Service Providers available in Malaysia</h1>
-
 <div class="container">
+<h1 class=''>3D Printing Service Providers</h1>
     <% @serviceproviders.each_with_index do |provider,index| %>
-        <%=index+1%>.
-        <%=provider.provider_name%><br>
-        Description:        
-        <%=provider.description%><br>
-        Location:
-        <%=provider.location%><br>
-        Phone:
-        <%=provider.phone%><br>
-        Email:
-        <%=provider.email%><br>
-        <%= link_to 'Show', user_serviceprovider_path(:user_id=>provider.user_id,:id=>provider.id)  %><br>
+        <div class="card provider_all" style="width: 28rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%=provider.provider_name%><br></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%=provider.location%><br></h6>
+                <p class="card-text"> Description:
+                <%=provider.description%><br>
+                Phone:
+                <%=provider.phone%><br>
+                Email:
+                <%=provider.email%><br>
+                <%= link_to 'Show', user_serviceprovider_path(:user_id=>provider.user_id,:id=>provider.id)  %><br>
 
+            </div>
+        </div>
     <%end%>
 </div>
+

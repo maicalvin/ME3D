@@ -17,16 +17,15 @@ class ServiceprovidersController < ApplicationController
 
   def search
     @companies = Serviceprovider.all
-    @search_providers = Serviceprovider.search_providers(provider_name:params["searchcompany"])
-
-    @company= Serviceprovider.find_by(provider_name: params["searchcompany"])
+    @search_providers = Serviceprovider.search_providers(params["searchproviders"])
+    @company= Serviceprovider.find_by(provider_name: params["searchproviders"])
 
         respond_to do |format|
             format.html { redirect_to show_providers_path(@company.id) }
-            format.json { render json: @search_providers.map{|c| c.name}}
+            format.json { render json: @search_providers.map{|c| c.provider_name}}
         end
     end
-  # GET /serviceproviders/new
+  # GET /serviceproviders/new   
   def new
     @serviceprovider = Serviceprovider.new
   end

@@ -23,6 +23,14 @@
 
     <%= form.label :location %>
     <%= form.select :location, ['Johor Bahru', 'Kedah','Kelantan','Pahang','Melaka','Negeri Sembilan','Perak','Perlis','Pulau Pinang','Selangor','Terengganu','Sabah','Sarawak'], class:"col-8" %><p>
+     
+    Longitude of your company :<p> 
+    <%= form.text_area :longitude, placeholder:'Longitude' %><p>
+    
+    Latitude of your company:<p>
+    <%= form.text_area :latitude, placeholder:'Latitude' %><p>
+     
+          What type of materials do you print:
     <%= form.label :description %>
     <%= form.text_area :description %>
 

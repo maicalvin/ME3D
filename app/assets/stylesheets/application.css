@@ -20,7 +20,7 @@ body{
 }
 
 .navbar{
-    background-color: rgb(95, 128, 218);
+    background-color: rgba(255, 147, 147, 0.527);
     
 }
 .navbar-brand{
@@ -28,4 +28,15 @@ body{
 }
 .logo{
     width:10%;
+}
+.nav-left{
+    color:black;
+    font-size:1.5vh;
+    margin-right: 10%;
+}
+.nav-right {
+    color:black;
+    font-size: 1.5vh;
+    margin-right:1%;
+
 }

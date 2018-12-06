@@ -5,18 +5,27 @@
   type="text/javascript" charset="utf-8"></script>
 <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
   type="text/javascript" charset="utf-8"></script>
-  <%= @serviceprovider.provider_name%><p>
- 
-  <%= @serviceprovider.description%><p>
-  Description:
-  <%= @serviceprovider.location%><p>
-  Phone Number:
-  <%= @serviceprovider.phone%><p>
-  Email:
-  <%= @serviceprovider.email%><p>
-  PLA:
-  <%= @serviceprovider.materials%><p>
-<div style="width: 640px; height: 480px" id="mapContainer"></div>
+<link href="https://fonts.googleapis.com/css?family=Anton|Bitter|Bungee|Patua+One" rel="stylesheet">
+
+</div>
+      <div class="row mb-2 comp_show">
+        <div class="col-md-12">
+          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">3D Printing Service Company</strong>
+              <h3 class="mb-2">
+                <a class="text-dark comp_name" ><%= @serviceprovider.provider_name%></a>
+              </h3>
+              <div class="mb-5 text-muted comp_des"><%= @serviceprovider.description%></div>
+              <p class="card-text comp_content mb-auto">Location:<%= @serviceprovider.location%></p>
+              <p class="card-text comp_content mb-auto">Phone Number:<%= @serviceprovider.phone%></p>
+              <p class="card-text comp_content mb-auto"> Email:<%= @serviceprovider.email%></p>
+              <p class="card-text comp_content mb-auto"> Materials:<%= @serviceprovider.materials%></p>
+              <p class="card-text comp_content mb-auto"> Price per gram:<%= @serviceprovider.price%></p> 
+            </div>
+            <div class="card-img-right flex-auto d-none d-lg-block"style="width: 50vw; height: 60vh" id="mapContainer"></div>
+          </div>
+        </div>
   <script>
   let data = JSON.parse('<%= raw @longitude %>')
   console.log(data)
@@ -38,7 +47,7 @@
       zoom: 18,
       center: { lng: data.longitude, lat: data.latitude}
     });
-    var icon = new H.map.Icon("<%=asset_path ('MAKE1')%>", {size: {w: 32, h: 32}});
+    var icon = new H.map.Icon("<%=asset_path ('MAKE1')%>", {size: {w: 42, h: 15}});
     var marker = new H.map.Marker({ 
       lat: data.latitude,
        lng: data.longitude 

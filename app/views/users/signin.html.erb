@@ -1,12 +1,23 @@
   
-
-        <div class="col-md-6 col-md-offset-3">
+<link href="/Users/maicalvin/printing3d/app/assets/stylesheets/users.css" rel="stylesheet">
+<div class="card container signin_card ">
+  <div class="card-body">
+    <h5 class="card-title mb-5">SIGN IN</h5>
+      <%= form_tag '/signin' do %>
+        <div class='signin_tag'>
+        <div class ='signin_title  col-10'> EMAIL
+        <%= text_field_tag :email  %><br></div><br><br>
+        <div class ='signin_title'> Password
+        <%= password_field_tag :password %></div>
+        </div><br><br>
+        <button type="submit" class="btn btn-primary mr-3">Sign In</button>
         <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+      <% end %> 
+      </div>
+  </div>
+</div>
 
-<%= form_tag '/signin' do %>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
 
-<% end %>
+  
+

@@ -1,4 +1,4 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Printing3d</title>
@@ -21,29 +21,31 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
  <img class='logo'src='<%=asset_path ('MAKE1')%>'>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <%if logged_in? %>
-      <li class="nav-item active">
-         <%=link_to user_path(current_user) do %>
-             Profile
-         <% end %>
+  
+      <li class="nav-item nav-left">
+          <%= link_to t(".Home"), all_providers_path %>
+      </li>
+        <%if logged_in? %>
+      <li class="nav-item active nav-left">
+         <%=link_to t(".Profile"), user_path(current_user) %>
       </li>
     <% end %>
-      <li class="nav-item">
-          <%= link_to t(".Home"), all_providers_path, class:"nav-link" %>
-      </li>
     </ul>
       <%if logged_in? %>
-        
-         <%=link_to new_user_serviceprovider_path(current_user) do %>
-         Be a Service Provider
+        <%if current_user.serviceproviders==[]%>
+         <div class="nav-right">
+          <%=link_to "Be a Service Provider", new_user_serviceprovider_path(current_user) %>
          <% end %>
+         </div>
+         <div class="nav-right">
           <%= link_to t(".sign_out"), sign_out_path, method: :delete, class:"nav-link" %>
+          </div>
       <% else %>
           <%= link_to t(".sign_in"), sign_in_path, class:"nav-link" %>
       <% end %>   
-      
+      </div>
       <%= form_with url: search_providers_path, local: true, class:'form-inline my-2 my-lg-0' , :method => 'post', id: "search-providers"  do |form| %>
-      <%= form.text_field :searchcompany, class: "form-control mr-sm-2", list: 'list', id:"main-search", placeholder:"Search for a Company" %>
+      <%= form.text_field :searchproviders, class: "form-control mr-sm-2", list: 'list', id:"main-search", placeholder:"Search for a Company" %>
       <%= form.submit "Search", class:"btn btn-outline-primary my-2 my-sm-0" %>
       <datalist id="list"></datalist>
     <% end %>
@@ -73,18 +75,17 @@
             console.log("Something went wrong");
         },
         success: function(data) {
-                           console.log('siami'),
           document.getElementById('list').innerHTML = '';
           $("#list").empty();
-
           var uniquedata = [];
           $.each(data, function(i, el){
               if($.inArray(el, uniquedata) === -1) uniquedata.push(el);
           });
-
+        
           uniquedata.forEach(function(element) {
             var option = document.createElement("option");
             option.value = element;
+
             //append option to list
             $("#list").append(option);
           });

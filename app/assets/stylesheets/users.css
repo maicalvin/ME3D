@@ -1,0 +1,79 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.welcome{
+    height: 100%;
+}
+.card_home{
+    height: 100%;
+    border-radius: 2vh;
+    margin-right: 5vh;
+    box-shadow:grey 5px 5px 6px; 
+}
+.picture{
+    height:84vh;
+    width:100vw;
+    
+}
+.title_welcome{
+
+    font-family: 'Anton', sans-serif;
+    color:gradient();
+}
+.title_name{
+font-family: 'Patua One', cursive;
+font-size:5vh;
+color:rgb(255, 93, 93);
+text-shadow: rgb(2, 1, 1) 2px 2px 2px  ;
+margin-bottom: 4vh;
+margin-top:5vh;
+margin-left: 3vh;
+}
+.title_description{
+    font-family: 'Bitter', serif;
+    font-size:2vh;
+    margin:3vh;
+    color:rgb(1, 1, 5);
+    margin-bottom: 4%;
+    
+}
+.signup{
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+.signup form{
+    font-size:1vh;
+    margin: 1vh;
+}
+.signup select{
+    font-size:1.5vh;
+    margin-bottom:1vh;
+}
+.signup form p{
+    font-size: 1.5vh;
+
+}
+.signup input{
+    border-radius: 2px;
+    font-size: 1.5vh;
+    padding: 1vh;
+    
+}
+
+.signin_card{
+    text-align: center;
+    margin-top: 10%;
+    border-radius: 10px;
+    height:30vh;
+
+}
+.signin_title{
+    font-size: 2vh;
+    text-align: left;
+    display: inline;
+    margin-bottom: 1vh;
+
+}
+.signin_tag {
+}

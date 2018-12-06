@@ -4,3 +4,4 @@ class Serviceprovider < ApplicationRecord
         where("provider_name ILIKE :provider_name", provider_name: "%#{query}%")
     end
 end
+

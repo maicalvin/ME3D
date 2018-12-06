@@ -1,27 +1,37 @@
+<link href="https://fonts.googleapis.com/css?family=Anton|Bitter|Bungee|Patua+One" rel="stylesheet">
+<link href="/Users/maicalvin/printing3d/app/assets/stylesheets/users.css" rel="stylesheet">
+
 <div class="jumbotron welcome">
 <div class="card-group">
-  <div class="card card-size">
-       <img class ="picture" src='<%=asset_path ('IMG_7404')%>'>
+  <div class="card_home card card-size">
+       <img class ="picture col-12 " src='<%=asset_path ('IMG_7404')%>'>
   </div>
-  <div class="card">
+  <div class="card_home card">
     <div class="card-body">
-      <h5 class="card-title"> User </h5>
+      <h5 class="card-title ">  <div class='title_name'>MAKE ME3D</div> </h5>
+        <p class="title_description">Find your reliable 3D printing service provider in nearby.</p>
+        <p class="title_description">Print anything such as toys, tools or figure whenever you need it</p>
+        <p class="title_description">It is much cheaper and faster to use 3D printing</p>
+        <p class="title_description">Design your own 3D object and send to your 3D printing service provider </p>
+        <p class="title_description">Feel more reliable by using our platform.</p>
+        <p class="title_description"> If the quality of the 3D object is really bad, you can get a full refund </p>
     </div>
+    <%if !logged_in?%>
+     <div class="signup">
       <%= form_with(model: @user, local: true) do |form| %>
-          <%= form.text_field :first_name, class:'col-8 form-control', placeholder:'First Name' %><p>
-          <%= form.text_field :last_name, class:'col-8 form-control', placeholder:'Last Name' %><p>
-          <%= form.text_field :email, class:'col-8 form-control', placeholder:'Email' %><p>
-          <%= form.text_field :password, type:'password',class:'col-8 form-control', placeholder:'password' %><p>
-          <%= form.select :gender, ['Male', 'Female'], class:"col-8" %><p>
-          <%= form.text_field :birthday, type: 'birthday',placeholder:'yyyy-mm-dd', class:"col-8 form-control"  %>
-          <%= form.label :profilepicture%>
-          <%= form.file_field :profilepicture %>
-          <%= form.submit 'SIGN UP'%><p>
+          <%= form.text_field :first_name, class:'col-11 form-control', placeholder:'First Name' %><br>
+          <%= form.text_field :last_name, class:'col-11 form-control', placeholder:'Last Name' %><br>
+          <%= form.text_field :email, class:'col-11 form-control', placeholder:'Email' %><br>
+          <%= form.text_field :password, type:'password',class:'col-11 form-control', placeholder:'password' %><br>
+          <%= form.select :gender,['Male', 'Female'],class:'col-11 form-control'%><br>
+          <%= form.text_field :birthday, type: 'birthday',placeholder:'yyyy-mm-dd', class:"col-11 form-control"  %><br>
+          <p> Profile Picture:
+          <%= form.file_field :profilepicture %><br></p>
+          <%= form.submit 'SIGN UP'%><br>
       <% end %>
-
+    <%end%>
   </div>
 </div>
 
 
 
-<%= link_to 'Back', users_path %>

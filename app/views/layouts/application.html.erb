@@ -42,6 +42,7 @@
           <%= link_to t(".sign_out"), sign_out_path, method: :delete, class:"nav-link" %>
           </div>
       <% else %>
+          <%= link_to t(".sign_up"), root_url, class:"nav-link" %>
           <%= link_to t(".sign_in"), sign_in_path, class:"nav-link" %>
       <% end %>   
       </div>

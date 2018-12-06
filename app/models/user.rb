@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  validates :email, uniqueness: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+  validates :email, uniqueness: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/,presence: true
+  validates :password_digest, presence:true
+  validates :birthday, format:/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/
   has_secure_password
     has_many :authentications, dependent: :destroy
     has_many :serviceproviders, dependent:  :destroy

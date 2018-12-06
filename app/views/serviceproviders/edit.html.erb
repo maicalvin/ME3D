@@ -1,6 +1,5 @@
 <h1>Editing Serviceprovider</h1>
-
-    <%= form_with( model: @serviceprovider,method: :put, local: true,url: user_serviceprovider_path) do |form| %>
+  <%= form_with( model: @serviceprovider,method: :put, local: true,url: user_serviceprovider_path) do |form| %>
 
  
   <% if @serviceprovider.errors.any? %>
@@ -30,11 +29,10 @@
     Latitude of your company:<p>
     <%= form.text_area :latitude, placeholder:'Latitude' %><p>
      
-          What type of materials do you print:
     <%= form.label :description %>
     <%= form.text_area :description %>
 
-    <%= form.label :materials %>
+    What type of materials do you print:
     <%= form.text_area :materials %>
 
     <%= form.label :phone %>
@@ -49,7 +47,7 @@
     <%= form.label :collection %>
     <%= form.select :collection, ['Yes', 'No'], class:"col-8" %><p>
 
-      <%= form.submit %>
+    <%= form.submit %>
   </p>
  
 <% end %>

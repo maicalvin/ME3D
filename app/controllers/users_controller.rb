@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       sign_in(user)
       redirect_to user_path(current_user.id)
     else
-      redirect "/users/new"
+      redirect_to root_url
     end
 
   end

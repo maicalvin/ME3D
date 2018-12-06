@@ -30,6 +30,7 @@ gem"omniauth-google-oauth2"
 gem'omniauth'
 gem 'carrierwave'
 gem 'figaro'
+gem'rails_12factor'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
